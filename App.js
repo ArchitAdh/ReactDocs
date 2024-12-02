@@ -1,12 +1,19 @@
 const products = [
-  { title: "phone", id: 1 },
-  { title: "laptop", id: 2 },
-  { title: "tablet", id: 3 },
+  { title: "phone", id: 1, isMobile: true },
+  { title: "desktop", id: 2, isMobile: false },
+  { title: "tablet", id: 3, isMobile: true },
 ];
 
 function MyApp() {
   const listItems = products.map((product) => (
-    <li key={product.id}> {product.title}</li>
+    <li
+      key={product.id}
+      style={{
+        color: product.isMobile ? "green" : "red",
+      }}
+    >
+      {product.title}
+    </li>
   ));
   return <ul>{listItems}</ul>;
 }
